@@ -1,0 +1,12 @@
+<p>{% for blog in blogs %}</p>
+<a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+<p>{{ blog.description }}</p>
+<p>{% endfor %}</p>
+<form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+            <input type="text" name="title">
+            <textarea name="description"></textarea>
+    </fieldset>
+    <input type="submit" value="Click">
+</form>
